@@ -1,6 +1,7 @@
 #!/bin/bash
 #output directories
-echo 'Dir list in' $PWD
+FIND_PATH="PATH_TO_MT_DIR"
+echo 'Dir list in $FIND_PATH'
 ls -la -d */ | awk '{print $9, $6, $7, $8}' > hw6.txt
 cat hw6.txt
 #add adress to hosts
@@ -11,4 +12,4 @@ then
  echo '192.168.3.1 myapp.com' >> /etc/hosts
 else
  echo 'HOSTS complete'
- fi
+ fi 
