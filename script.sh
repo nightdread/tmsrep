@@ -12,7 +12,7 @@ echo $CURRENT_TIME >> /home/$HOME_NAME/$NEW_FILE_NAME
 cat /home/$HOME_NAME/$NEW_FILE_NAME
 #add adress to hosts
 echo 'Check hosts file'
-if ! grep -q myapp.com.* "/etc/hosts"
+if ! grep -q "myapp.com*" "/etc/hosts"
 then
  echo 'Dobavlenie adresa'
  echo '192.168.3.1 myapp.com' >> /etc/hosts
