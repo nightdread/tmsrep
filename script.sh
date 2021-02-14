@@ -1,8 +1,8 @@
 #!/bin/bash
 #output directories
-FIND_PATH="PATH_TO_MT_DIR"
-echo 'Dir list in $FIND_PATH'
-ls -la -d */ | awk '{print $9, $6, $7, $8}' > hw6.txt
+FIND_PATH="$PWD"
+echo Dir list in $FIND_PATH
+ls -la -d | awk '{print $9, $6, $7, $8}' > hw6.txt
 cat hw6.txt
 #add adress to hosts
 echo 'Check hosts file'
