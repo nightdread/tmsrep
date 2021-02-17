@@ -1,5 +1,5 @@
 #!/bin/bash
-#output directories
+#1. Output in alphabetical order.
 FIND_PATH="$PWD"
 HOME_NAME="$HOME"
 CURRENT_TIME=$(date "+%Y.%m.%d-%H.%M.%S")
@@ -8,9 +8,10 @@ NEW_FILE_NAME=$FILE_NAME.$CURRENT_TIME
 echo Dir list in "$FIND_PATH"
 ls -la -d | awk '{print $9, $6, $7, $8}' > /"$HOME"/"$NEW_FILE_NAME"
 echo "New file name: " "$NEW_FILE_NAME"
+#Add timestamp in output.
 echo "$CURRENT_TIME" >> /"$HOME"/"$NEW_FILE_NAME"
 cat /"$HOME"/"$NEW_FILE_NAME"
-#add adress to hosts
+#4. Add adress in hosts file.
 echo 'Check hosts file'
 if ! grep -q "^myapp.com*" "/etc/hosts"
 then
