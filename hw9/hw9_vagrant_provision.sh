@@ -7,7 +7,7 @@ DNS_PATH="/etc/resolv.conf"
 DNS1="8.8.8.8"
 DNS2="1.1.1.1"
 APP_ADRESS="myownapp.com"
-MY_IP="`curl -s http://ifconfig.me/ip`"
+MY_IP="$(curl -s http://ifconfig.me/ip)"
 PASSWORD_AUTH_YES="PasswordAuthentication yes"
 PASSWORD_AUTH_NO="PasswordAuthentication no"
 ROOT_LOGIN_YES="PermitRootLogin without-password"
@@ -15,7 +15,12 @@ ROOT_LOGIN_NO="PermitRootLogin no"
 #----------USER ADD-----------
 function user_add {
     echo "Add $USER_NAME user"
+    if grep "$USER_NAME" /etc/passwd
+    then
+    echo "User already exists"
+    else
     sudo useradd -s /bin/bash -d ${USER_HOME}/${USER_NAME} -m -G wheel ${USER_NAME}
+    fi
 }
 
 #---------ADD USER TO SUDOERS----------
