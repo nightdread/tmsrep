@@ -65,7 +65,7 @@ function dns_update {
 #----------CHECK MYOWNAPP.COM CAN BE RESOLVED----------
 function check_myownapp {
     echo "Check myownapp.com availability"
-    if ping $APP_ADRESS
+    if ping -c 1 $APP_ADRESS &> /dev/null
     then
         echo "Adress available"
     else
