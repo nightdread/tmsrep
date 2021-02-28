@@ -6,4 +6,10 @@ function find_sh {
     sudo find $CURRENT_PATH -type f -name "*.sh"
 }
 
+#---------FIND *.png files-------
+function find_png {
+    echo "Find *.png files in $CURRENT_PATH"
+    sudo find $CURRENT_PATH -type f -name "*.png"
+}
 find_sh
+find_png
