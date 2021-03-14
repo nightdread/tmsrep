@@ -1,15 +1,9 @@
 #!/bin/bash
 CURRENT_PATH="$PWD"
-#---------FIND *.sh files--------
-function find_sh {
+#---------FIND *.sh & *.png files--------
+function find_files {
     echo "Find *.sh files in $CURRENT_PATH"
-    sudo find "$CURRENT_PATH" -type f -name "*.sh"
+    sudo find "$CURRENT_PATH" -iregex '.*\.\(png\|sh\)$'
 }
 
-#---------FIND *.png files-------
-function find_png {
-    echo "Find *.png files in $CURRENT_PATH"
-    sudo find "$CURRENT_PATH" -type f -name "*.png"
-}
-find_sh
-find_png
+find_files
