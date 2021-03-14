@@ -1,0 +1,2 @@
+1.Replace  "s3:DeleteBucket" with "s3:CreateBucket" in the fileA
+sed -i 's/.*s3:DeleteBucket.*/s3:CreateBucket/' ~/tmsrep/hw12/FileA
