@@ -1,7 +1,0 @@
-# Homework
-### 
-Run container from ubuntu image
-Login to this container
-Create file /sizefile with size 1GB
-Check docker container size(RW layer and virtual size)
-Delete container
