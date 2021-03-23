@@ -1,6 +1,16 @@
-### 1.Run container from ubuntu image
-a. Login to this container
-b. Create file /sizefile with size 1GB
-c. Check docker container size(RW layer and virtual size)
-d. Delete container
+# 1.Run container from ubuntu image
+#### a. Login to this container
+#### b. Create file /sizefile with size 1GB
+#### c. Check docker container size(RW layer and virtual size)
+#### d. Delete container
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-03-23_14-20-12.png)
+
+# 2. Create your own image hw14 based on ubuntu image
+#### a. For this use Dockerfile
+#### b. Add file /sizefile with size =1GB to Dockerfile
+#### c. Run container from hw14 images
+#### d. Check docker container size(RW layer and virtual size)
+#### e. Push your image to your docker hub account(create if account does not exist)
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-03-23_15-05-16.png)
+
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-03-23_15-16-34.png)
