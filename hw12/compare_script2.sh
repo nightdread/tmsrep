@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Compare numbers A & B.
+#Compare numbers A & B & C.
 echo "Enter number A:";
 read a;
 
