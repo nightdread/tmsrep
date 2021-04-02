@@ -14,3 +14,11 @@
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-03-23_15-05-16.png)
 
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-03-23_15-16-34.png)
+
+# 3.Run containers from ubuntu image
+#### a.With first mount use bind mount
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_15-31-47.png)
+
+#### b.With second run use volume mount
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_15-39-10.png)
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_15-40-01.png)
