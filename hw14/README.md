@@ -18,7 +18,12 @@
 # 3.Run containers from ubuntu image
 #### a.With first mount use bind mount
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_15-31-47.png)
-
 #### b.With second run use volume mount
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_15-39-10.png)
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_15-40-01.png)
+
+# 4.Run nginx container from nginx image.
+#### a.Map 8081 port to 80 port of nginx container. Check it
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_16-01-38.png)
+#### b.Do not use a particular port and get any random port mapped to 80 port of your nginx container.
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_16-02-32.png)
