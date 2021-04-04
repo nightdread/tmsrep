@@ -27,3 +27,6 @@
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_16-01-38.png)
 #### b.Do not use a particular port and get any random port mapped to 80 port of your nginx container.
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-04-02_16-02-32.png)
+=======
+![Picture](https://github.com/nightdread/tmsrep/blob/hw14/hw14/2021-03-23_15-16-34.png)
+
