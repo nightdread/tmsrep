@@ -1,0 +1,6 @@
+[Group1]
+192.168.1.200 ansible_user=vagrant
+[Group2]
+192.168.1.201 ansible_user=vagrant
+[Group3]
+192.168.1.202 ansible_user=vagrant
