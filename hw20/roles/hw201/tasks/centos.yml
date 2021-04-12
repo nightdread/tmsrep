@@ -1,0 +1,13 @@
+---
+- name: "Install programs on CentOS"
+  ansible.builtin.package:
+   name: "{{ item }}"
+   state: latest
+   update_cache: yes
+  loop:
+   - git
+   - python3
+   
+  become: true
+  when: ansible_facts['os_family'] == "RedHat"
+  

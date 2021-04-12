@@ -1,0 +1,41 @@
+---
+#Copy to Ubuntu
+- name: "Copy files to hosts"
+  become: true
+  become_user: root
+  ansible.builtin.copy:
+   src: /home/nightdread/tmsrep/hw20/roles/hw202/files/curl.deb
+   dest: /tmp/curl.deb
+   owner: hw20
+   mode: 0744
+  when: ansible_facts['os_family'] == "Debian"
+
+#Copy to CentOS
+- name: "Copy files to hosts"
+  become: true
+  become_user: root
+  ansible.builtin.copy:
+   src: /home/nightdread/tmsrep/hw20/roles/hw202/files/curl.rpm
+   dest: /tmp/curl.rpm
+   owner: hw20
+   mode: 0744
+  when: ansible_facts['os_family'] == "RedHat"
+  
+#Install Curl on Ubuntu
+- name: "Install a .deb package"
+  become: true
+  ansible.builtin.apt:
+    deb: /tmp/curl.deb
+    state: present
+    update_cache: yes
+  when: ansible_facts['os_family'] == "Debian"
+  
+#Install Curl on CentOS
+- name: "Install nginx rpm from a local file"
+  become: true
+  ansible.builtin.yum:
+    name: /tmp/curl.rpm
+    state: present
+    update_cache: yes
+  when: ansible_facts['os_family'] == "RedHat"
+    

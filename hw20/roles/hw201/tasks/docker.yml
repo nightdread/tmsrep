@@ -1,0 +1,69 @@
+---
+#Ubuntu
+- name: "Install Docker on Ubuntu"
+  block:
+    - name: "Set up the repository"
+      ansible.builtin.package:
+       name: "{{item}}"
+       update_cache: yes
+      loop:
+       - apt-transport-https
+       - ca-certificates
+       - curl
+       - gnupg
+       - lsb-release
+
+    - name: "Add GPG key"
+      ansible.builtin.apt_key:
+       url: https://download.docker.com/linux/ubuntu/gpg
+       state: present
+       
+    - name: "Add repos"
+      ansible.builtin.apt_repository:
+       repo: deb https://download.docker.com/linux/ubuntu focal stable
+       state: present
+       
+    - name: "Install Docker Engine"
+      ansible.builtin.package:
+       name: "{{item}}"
+       update_cache: yes
+      loop:
+       - docker-ce
+       - docker-ce-cli
+       - containerd.io
+             
+    - name: "Add Docker to start up"
+      ansible.builtin.service:
+       name: docker
+       state: started
+       enabled: yes
+           
+  when: ansible_facts['os_family'] == "Debian"
+  become: true
+
+#CentOS
+- name: "Install Docker on Ubuntu"
+  block:
+    - name: "Add Docker repo"
+      ansible.builtin.get_url:
+       url: https://download.docker.com/linux/centos/docker-ce.repo
+       dest: /etc/yum.repos.d/docer-ce.repo
+      
+    - name: "Install Docker"
+      ansible.builtin.package:
+       name: "{{item}}"
+       state: latest
+      loop:
+       - docker-ce
+       - docker-ce-cli
+       - containerd.io 
+        
+    - name: "Add Docker to start up"
+      ansible.builtin.service:
+       name: docker
+       state: started
+       enabled: yes
+       
+  when: ansible_facts['os_family'] == "RedHat"
+  become: true
+  

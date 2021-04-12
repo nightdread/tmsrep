@@ -1,0 +1,56 @@
+---
+
+#For CentOS
+- name: Install programs on CentOS
+  import_tasks: centos.yml
+   
+#For Ubuntu
+- name: Install programs on Ubuntu
+  import_tasks: ubuntu.yml
+  
+#Install docker
+- name: Install docker
+  import_tasks: docker.yml 
+   
+#Add user Ubuntu
+- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory Ubuntu
+  ansible.builtin.user:
+   name: hw20
+   shell: /bin/sh
+   home: /opt/hw20
+   groups: sudo,docker
+   state: present
+  become: true
+  when: ansible_facts['os_family'] == "Debian"
+     
+#Reset connection  
+- name: reset ssh connection to allow user changes to affect 'current login user'
+  meta: reset_connection  
+  
+#Add user CentOS
+- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory CentOS
+  ansible.builtin.user:
+   name: hw20
+   shell: /bin/sh
+   home: /opt/hw20
+   groups: wheel,docker
+   state: present
+  become: true
+  when: ansible_facts['os_family'] == "RedHat"
+      
+#Reset connection  
+- name: reset ssh connection to allow user changes to affect 'current login user'
+  meta: reset_connection
+  
+#Pull public git repo
+- name: Pull public git repo as user hw20 to /opt/hw20/
+  ansible.builtin.git:
+   repo: 'https://github.com/nightdread/tmsrep.git'
+   dest: /opt/hw20/git/
+   clone: yes
+  become: yes
+  become_user: root
+  
+#Get info from files
+- name: "Get variables from file"
+  import_tasks: template.yml 
