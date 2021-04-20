@@ -33,7 +33,7 @@
   when: ansible_facts['os_family'] == "Debian"
   
 #Install Curl on CentOS
-- name: "Install nginx rpm from a local file"
+- name: "Install a .rpm package"
   become: true
   ansible.builtin.yum:
     name: /tmp/curl.rpm

@@ -1,16 +1,12 @@
 ---
 
-#For CentOS
-- name: Install programs on CentOS
-  import_tasks: centos.yml
-   
-#For Ubuntu
-- name: Install programs on Ubuntu
-  import_tasks: ubuntu.yml
+#For Linux
+- name: Install Git & Python3 on Linux
+  import_tasks: install_app.yml
   
 #Install docker
 - name: Install docker
-  import_tasks: docker.yml 
+  import_tasks: docker.yml
    
 #Add user Ubuntu
 - name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory Ubuntu

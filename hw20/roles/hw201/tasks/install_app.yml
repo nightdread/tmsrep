@@ -1,5 +1,5 @@
 ---
-- name: "Install programs on Ubuntu"
+- name: "Install Git & Python3 on Linux"
   ansible.builtin.package:
    name: "{{ item }}"
    state: latest
@@ -7,7 +7,4 @@
   loop:
    - git
    - python3
-   
   become: true
-  when: ansible_facts['os_family'] == "Debian"
-  
