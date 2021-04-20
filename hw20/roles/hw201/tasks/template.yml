@@ -2,7 +2,7 @@
 
 - name: "Template a file to /tmp/HW20_FILE_INFO"
   ansible.builtin.template:
-    src: /home/nightdread/tmsrep/hw20/roles/hw201/templates/main.j2
+    src: main.j2
     dest: /tmp/HW20_FILE_INFO
     owner: hw20
     mode: '0644'

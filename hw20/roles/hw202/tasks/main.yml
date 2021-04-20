@@ -4,7 +4,7 @@
   become: true
   become_user: root
   ansible.builtin.copy:
-   src: /home/nightdread/tmsrep/hw20/roles/hw202/files/curl.deb
+   src: curl.deb
    dest: /tmp/curl.deb
    owner: hw20
    mode: 0744
@@ -15,7 +15,7 @@
   become: true
   become_user: root
   ansible.builtin.copy:
-   src: /home/nightdread/tmsrep/hw20/roles/hw202/files/curl.rpm
+   src: curl.rpm
    dest: /tmp/curl.rpm
    owner: hw20
    mode: 0744
@@ -28,6 +28,8 @@
     deb: /tmp/curl.deb
     state: present
     update_cache: yes
+    force: yes
+    
   when: ansible_facts['os_family'] == "Debian"
   
 #Install Curl on CentOS
@@ -37,5 +39,6 @@
     name: /tmp/curl.rpm
     state: present
     update_cache: yes
+    allow_downgrade: yes
   when: ansible_facts['os_family'] == "RedHat"
     
