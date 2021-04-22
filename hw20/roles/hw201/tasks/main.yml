@@ -8,32 +8,16 @@
 - name: Install docker
   import_tasks: docker.yml
    
-#Add user Ubuntu
-- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory Ubuntu
+#Add user on hosts
+- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory
   ansible.builtin.user:
    name: hw20
    shell: /bin/sh
    home: /opt/hw20
-   groups: sudo,docker
+   groups: "{{ sudo_groups }}"
    state: present
   become: true
-  when: ansible_facts['os_family'] == "Debian"
-     
-#Reset connection  
-- name: reset ssh connection to allow user changes to affect 'current login user'
-  meta: reset_connection  
-  
-#Add user CentOS
-- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory CentOS
-  ansible.builtin.user:
-   name: hw20
-   shell: /bin/sh
-   home: /opt/hw20
-   groups: wheel,docker
-   state: present
-  become: true
-  when: ansible_facts['os_family'] == "RedHat"
-      
+
 #Reset connection  
 - name: reset ssh connection to allow user changes to affect 'current login user'
   meta: reset_connection
@@ -49,4 +33,4 @@
   
 #Get info from files
 - name: "Get variables from file"
-  import_tasks: template.yml 
+  import_tasks: template.yml

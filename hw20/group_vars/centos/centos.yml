@@ -1,3 +1,4 @@
 ---
 #Centos vars
 group_hw20: ZONE_2
+sudo_groups: wheel,docker
