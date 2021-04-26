@@ -4,7 +4,5 @@
    name: "{{ item }}"
    state: latest
    update_cache: yes
-  loop:
-   - git
-   - python3
+  loop: "{{ install_apps }}"
   become: true

@@ -11,9 +11,9 @@
 #Add user on hosts
 - name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory
   ansible.builtin.user:
-   name: hw20
-   shell: /bin/sh
-   home: /opt/hw20
+   name: "{{ user_name }}"
+   shell: "{{ user_shell }}"
+   home: "{{ user_home }}"
    groups: "{{ sudo_groups }}"
    state: present
   become: true

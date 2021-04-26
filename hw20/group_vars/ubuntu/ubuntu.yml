@@ -2,3 +2,4 @@
 #Ubuntu vars
 group_hw20: ZONE_1
 sudo_groups: sudo,docker
+dest_path: "/tmp/curl.deb"
