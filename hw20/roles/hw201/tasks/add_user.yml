@@ -7,7 +7,7 @@
    groups: "{{ item.groups }}"
    state: present
   with_items: "{{ user_details }}"
-#  no_log: true
+  no_log: true
   become: true
   when: ansible_facts['os_family'] == "RedHat"
 
@@ -24,7 +24,7 @@
    groups: "{{ item.groups }}"
    state: present
   loop: "{{ user_details_list }}"
-#  no_log: false
+  no_log: false
   become: true
   when: ansible_facts['os_family'] == "Debian"
 
