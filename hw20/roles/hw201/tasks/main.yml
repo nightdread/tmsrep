@@ -34,3 +34,9 @@
 #Get info from files
 - name: "Get variables from file"
   import_tasks: template.yml
+
+#Test user
+- name: "Test user create"
+  import_tasks: add_user.yml
+  tags:
+   - test

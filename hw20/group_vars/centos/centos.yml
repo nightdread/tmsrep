@@ -3,3 +3,6 @@
 group_hw20: ZONE_2
 sudo_groups: wheel,docker
 dest_path: "/tmp/curl.rpm"
+user_name_hw22: "hw21_2"
+user_details:
+ - { name: hw21_2, groups: "wheel, docker", shell: /bin/sh, home: /opt/hw21_2}

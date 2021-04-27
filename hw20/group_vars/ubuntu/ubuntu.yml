@@ -3,3 +3,6 @@
 group_hw20: ZONE_1
 sudo_groups: sudo,docker
 dest_path: "/tmp/curl.deb"
+user_name_hw22: "hw21_1"
+user_details_list:
+ - { name: hw21_1, groups: "sudo, docker", shell: /bin/sh, home: /opt/hw21_1}
