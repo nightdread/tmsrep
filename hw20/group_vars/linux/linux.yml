@@ -8,3 +8,4 @@ user_name: "hw20"
 install_apps:
  - git
  - python3
+template_dest: "/tmp/HW20_FILE_INFO"
