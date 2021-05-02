@@ -1,5 +1,5 @@
 #Add user on hosts
-- name: Add the user 'hw21_2' with a sh shell and '/opt/hw21_2' home directory
+- name: Add the user 'hw21_1 (hw21_2)' with a sh shell and '/opt/hw21' home directory
   ansible.builtin.user:
    name: "{{ item.name }}"
    shell: "{{ item.shell }}"
@@ -7,24 +7,6 @@
    groups: "{{ item.groups }}"
    state: present
   with_items: "{{ user_details }}"
-  no_log: false
-  become: true
-  when: ansible_facts['os_family'] == "RedHat"
-
-#Reset connection  
-- name: reset ssh connection to allow user changes
-  meta: reset_connection
-
-#Add user on hosts
-- name: Add the user 'hw21_1' with a sh shell and '/opt/hw21_1' home directory
-  ansible.builtin.user:
-   name: "{{ item.name }}"
-   shell: "{{ item.shell }}"
-   home: "{{ item.home }}"
-   groups: "{{ item.groups }}"
-   state: present
-  loop: "{{ user_details_list }}"
-  when: ansible_facts['os_family'] == "Debian"
   no_log: false
   become: true
 
