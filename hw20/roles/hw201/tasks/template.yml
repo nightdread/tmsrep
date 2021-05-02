@@ -1,4 +1,5 @@
 ---
+#Add info file
 - name: "Template a file to /tmp/HW20_FILE_INFO"
   ansible.builtin.template:
     src: "{{ item.src }}"

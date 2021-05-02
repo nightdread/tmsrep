@@ -6,7 +6,7 @@
    home: "{{ item.home }}"
    groups: "{{ item.groups }}"
    state: present
-  with_items: "{{ user_details }}"
+  with_items: "{{ hw21_user }}"
   no_log: false
   become: true
 

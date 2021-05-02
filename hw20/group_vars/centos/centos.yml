@@ -3,7 +3,9 @@
 group_hw20: ZONE_2
 sudo_groups: wheel,docker
 user_name_hw22: "hw21_2"
-user_details:
+hw21_user:
  - { name: hw21_2, groups: "wheel, docker", shell: /bin/sh, home: /opt/hw21 }
 curl_files:
  - { src: "curl.rpm", dest: "/tmp/curl.rpm", owner: "hw20", mode: "0744" }
+hw20_user:
+ - { name: hw20, shell: /bin/sh, home: /opt/hw20, groups: "wheel, docker" }

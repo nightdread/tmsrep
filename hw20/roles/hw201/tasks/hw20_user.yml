@@ -1,0 +1,15 @@
+---
+#Add user on hosts
+- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory
+  ansible.builtin.user:
+   name: "{{ item.name }}"
+   shell: "{{ item.shell }}"
+   home: "{{ item.home }}"
+   groups: "{{ item.groups }}"
+   state: present
+  loop: "{{ hw20_user }}"
+  become: true
+
+#Reset connection  
+- name: reset ssh connection to allow user changes to affect 'current login user'
+  meta: reset_connection

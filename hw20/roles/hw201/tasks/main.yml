@@ -1,42 +1,37 @@
 ---
-
-#For Linux
+#Install Git & Python3
 - name: Install Git & Python3 on Linux
   import_tasks: install_app.yml
-  
-#Install docker
+  tags:
+   - apps
+
+#Install Docker
 - name: Install docker
   import_tasks: docker.yml
-   
-#Add user on hosts
-- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory
-  ansible.builtin.user:
-   name: "{{ user_name }}"
-   shell: "{{ user_shell }}"
-   home: "{{ user_home }}"
-   groups: "{{ sudo_groups }}"
-   state: present
-  become: true
+  tags:
+   - docker
 
-#Reset connection  
-- name: reset ssh connection to allow user changes to affect 'current login user'
-  meta: reset_connection
-  
+#Add user hw20 in hosts
+- name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory
+  import_tasks: hw20_user.yml
+  tags:
+  - hw20
+
 #Pull public git repo
 - name: Pull public git repo as user hw20 to /opt/hw20/
-  ansible.builtin.git:
-   repo: 'https://github.com/nightdread/tmsrep.git'
-   dest: /opt/hw20/git/
-   clone: yes
-  become: yes
-  become_user: root
-  
+  import_tasks: git_repo.yml
+  tags:
+   - git
+
 #Get info from files
 - name: "Get variables from file"
   import_tasks: template.yml
+  tags:
+   - info
 
 #Test user
 - name: "Test user create"
-  import_tasks: add_user.yml
+  import_tasks: hw21_user.yml
   tags:
-   - test
+   - hw21
+ 
