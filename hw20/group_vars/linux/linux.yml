@@ -9,3 +9,15 @@ install_apps:
  - git
  - python3
 template_dest: "/tmp/HW20_FILE_INFO"
+docker_apps:
+ - docker-ce
+ - docker-ce-cli
+ - containerd.io
+docker_apps_ubuntu:
+ - apt-transport-https
+ - ca-certificates
+ - curl
+ - gnupg
+ - lsb-release
+hw20_info:
+ - { src: "main.j2",dest: "/tmp/HW20_FILE_INFO",owner: "hw20",mode: "0644"}

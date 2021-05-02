@@ -2,7 +2,8 @@
 #Centos vars
 group_hw20: ZONE_2
 sudo_groups: wheel,docker
-dest_path: "/tmp/curl.rpm"
 user_name_hw22: "hw21_2"
 user_details:
  - { name: hw21_2, groups: "wheel, docker", shell: /bin/sh, home: /opt/hw21_2}
+curl_files:
+ - { src: "curl.rpm", dest: "/tmp/curl.rpm", owner: "hw20", mode: "0744" }

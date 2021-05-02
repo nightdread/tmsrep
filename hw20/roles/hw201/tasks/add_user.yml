@@ -24,9 +24,9 @@
    groups: "{{ item.groups }}"
    state: present
   loop: "{{ user_details_list }}"
+  when: ansible_facts['os_family'] == "Debian"
   no_log: false
   become: true
-  when: ansible_facts['os_family'] == "Debian"
 
 #Reset connection  
 - name: reset ssh connection to allow user changes

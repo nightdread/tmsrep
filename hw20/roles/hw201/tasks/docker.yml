@@ -6,12 +6,7 @@
       ansible.builtin.package:
        name: "{{ item }}"
        update_cache: yes
-      loop:
-       - apt-transport-https
-       - ca-certificates
-       - curl
-       - gnupg
-       - lsb-release
+      loop: "{{ docker_apps_ubuntu }}"
 
     - name: "Add GPG key"
       ansible.builtin.apt_key:
@@ -42,11 +37,9 @@
       ansible.builtin.package:
        name: "{{ item }}"
        state: latest
-      loop:
-        - docker-ce
-        - docker-ce-cli
-        - containerd.io
+      loop: "{{ docker_apps }}"
 
+#Add Docker to start up
     - name: "Add Docker to start up"
       ansible.builtin.service:
        name: docker

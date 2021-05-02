@@ -4,29 +4,30 @@
   become: true
   become_user: root
   ansible.builtin.copy:
-   src: curl.deb
-   dest: "{{ dest_path }}"
-   owner: hw20
-   mode: 0744
-  when: ansible_facts['os_family'] == "Debian"
+   src: "{{ item.src }}"
+   dest: "{{ item.dest }}"
+   owner: "{{ item.owner }}"
+   mode: "{{ item.mode }}"
+  loop: "{{ curl_files }}"
 
 #Install Curl on Ubuntu
 - name: "Install a .deb package"
   become: true
   ansible.builtin.apt:
-    deb: /tmp/curl.deb
+    deb: "{{ item.dest }}"
     state: present
     update_cache: yes
     force: yes
-    
+  loop: "{{ curl_files }}"
   when: ansible_facts['os_family'] == "Debian"
-  
+
 #Install Curl on CentOS
 - name: "Install a .rpm package"
   become: true
   ansible.builtin.yum:
-    name: /tmp/curl.rpm
+    name: "{{ item.dest }}"
     state: present
     update_cache: yes
     allow_downgrade: yes
+  loop: "{{ curl_files }}"
   when: ansible_facts['os_family'] == "RedHat"
