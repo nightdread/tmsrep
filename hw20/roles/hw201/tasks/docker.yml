@@ -1,6 +1,6 @@
 ---
 #Ubuntu
-- name: "Install Docker on Ubuntu"
+- name: "Add Docker repo Ubuntu"
   block:
     - name: "Set up the repository"
       ansible.builtin.package:
@@ -21,12 +21,10 @@
   become: true
 
 #CentOS
-- name: "Install Docker on CentOS"
-  block:
-    - name: "Add Docker repo"
-      ansible.builtin.get_url:
-       url: https://download.docker.com/linux/centos/docker-ce.repo
-       dest: /etc/yum.repos.d/docer-ce.repo 
+- name: "Add Docker repo CentOS"
+  ansible.builtin.get_url:
+   url: https://download.docker.com/linux/centos/docker-ce.repo
+   dest: /etc/yum.repos.d/docer-ce.repo 
   when: ansible_facts['os_family'] == "RedHat"
   become: true
 
