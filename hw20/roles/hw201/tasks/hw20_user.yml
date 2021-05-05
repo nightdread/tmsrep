@@ -1,11 +1,16 @@
 ---
+#Optional add sudo priv. to user
+- name: Add sudo to user
+  set_fact: sudo="{{ sudo_groups }}"
+  when: sudo_groups is defined
+
 #Add user on hosts
 - name: Add the user 'hw20' with a sh shell and '/opt/hw20' home directory
   ansible.builtin.user:
    name: "{{ item.name }}"
    shell: "{{ item.shell }}"
    home: "{{ item.home }}"
-   groups: "{{ item.groups }}"
+   groups: "{{ item.groups }},{{ sudo }}"
    state: present
   loop: "{{ hw20_user }}"
   become: true
