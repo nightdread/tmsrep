@@ -1,0 +1,26 @@
+---
+#Linux vars
+ansible_user: vagrant
+ansible_ssh_private_key_file: "/home/nightdread/.ssh/id_rsa"
+user_home: "/opt/hw20"
+user_shell: "/bin/sh"
+user_name: "hw20"
+sudo_groups: sudo
+install_apps:
+ - git
+ - python3
+template_dest: "/tmp/HW20_FILE_INFO"
+docker_apps:
+ - docker-ce
+ - docker-ce-cli
+ - containerd.io
+docker_apps_ubuntu:
+ - apt-transport-https
+ - ca-certificates
+ - curl
+ - gnupg
+ - lsb-release
+hw20_info:
+ - { src: "main.j2",dest: "/tmp/HW20_FILE_INFO",owner: "hw20",mode: "0644"}
+git_repo:
+ - { repo: 'https://github.com/nightdread/tmsrep.git', dest: "/opt/hw20/git/"}

@@ -1,0 +1,11 @@
+---
+#Ubuntu vars
+group_hw20: ZONE_1
+sudo_groups: sudo,docker
+default_password: defpass_hw21_1
+curl_files:
+ - { src: "curl.deb", dest: "/tmp/curl.deb", owner: "hw20", mode: "0744" }
+hw20_user:
+ - { name: hw20, groups: "sudo, docker", shell: /bin/sh, home: /opt/hw20,  }
+hw21_user:
+ - { name: hw21_1, groups: "sudo, docker", shell: /bin/sh, home: /opt/hw21, password: "{{ default_password | password_hash('sha512','A512') }}" }

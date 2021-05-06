@@ -1,0 +1,10 @@
+---
+#Pull public git repo
+- name: Pull public git repo as user hw20 to /opt/hw20/
+  ansible.builtin.git:
+   repo: "{{ item.repo }}"
+   dest: "{{ item.dest }}"
+   clone: yes
+  loop: "{{ git_repo }}"
+  become: yes
+  become_user: root
