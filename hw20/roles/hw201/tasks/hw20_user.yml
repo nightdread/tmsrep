@@ -1,7 +1,7 @@
 ---
 #Optional add sudo priv. to user
 - name: Add sudo to user
-  set_fact: sudo="{{ sudo_groups }}"
+  set_fact: sudo=",{{ sudo_groups }}"
   when: sudo_groups is defined
 
 #Add user on hosts
