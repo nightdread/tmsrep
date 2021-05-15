@@ -1,0 +1,2 @@
+test_file:
+  - { path: "/opt/hw23_test_file", src: "/opt/hw23_test_file", dest: "/opt/hw23_link", owner: "hw20", group: "hw20", mode: "0644"}
