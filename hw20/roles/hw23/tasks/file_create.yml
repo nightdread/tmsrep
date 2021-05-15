@@ -56,5 +56,5 @@
     - name: "Rename link"
       command: mv /opt/hw23_link /opt/hw23_test_file_link
       when: link_create.stat.exists
-      
+
   become: true
