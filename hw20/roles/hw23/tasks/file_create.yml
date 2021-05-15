@@ -39,3 +39,22 @@
     group: "{{ item.group }}"
     state: link
   loop: "{{ test_file }}"
+
+#Rename link
+- name: "Rename link"
+  block:
+    - name: "Get status"
+      ansible.builtin.stat:
+        path: "/opt/hw23_link"
+      register: link_create
+
+    - name: "Debug message"
+      ansible.builtin.debug:
+        msg: "Link doesn't found"
+      when: link_create.stat.exists == False
+
+    - name: "Rename link"
+      command: mv /opt/hw23_link /opt/hw23_test_file_link
+      when: link_create.stat.exists
+      
+  become:true
