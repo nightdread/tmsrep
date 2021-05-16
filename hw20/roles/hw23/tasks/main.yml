@@ -13,6 +13,6 @@
 
 #Kernel list
 - name: Kernel list
-  import_task: kernel_list.yml
+  import_tasks: kernel_list.yml
   tags:
     - kernel
