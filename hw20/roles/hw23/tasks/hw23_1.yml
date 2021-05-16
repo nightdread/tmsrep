@@ -47,8 +47,8 @@
   register: app_stat
   become: true
 
-notify:
-  - Docker start
-  - Docker restart
-  - Nginx start
-  - Nginx restart
+  notify:
+    - Docker start
+    - Docker restart
+    - Nginx start
+    - Nginx restart
