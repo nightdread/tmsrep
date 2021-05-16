@@ -8,21 +8,21 @@
    become: true
 
 # Restart service if services changed
- - name: "Docker restarted"
+ - name: "Docker restart"
    ansible.builtin.service:
      name: docker
      state: restarted
      enabled: yes
    when: docker_stat.changed
  
- - name: "nginx started"
+ - name: "nginx start"
    ansible.builtin.service:
      name: nginx
      state: started
      enabled: yes
    become: true
 
- - name: "nginx restarted"
+ - name: "nginx restart"
    ansible.builtin.service:
      name: nginx
      state: restarted
