@@ -39,6 +39,7 @@
     group: "{{ item.group }}"
     state: link
   loop: "{{ test_file }}"
+  become: true
 
 #Rename link
 - name: "Rename link"
