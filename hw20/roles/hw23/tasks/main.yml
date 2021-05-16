@@ -3,10 +3,16 @@
 - name: Create file
   import_tasks: file_create.yml
   tags:
-   - create
+    - create
 
 #Install apps
 - name: Install apps
   import_tasks: hw23_1.yml
   tags:
-   - apps
+    - apps
+
+#Kernel list
+- name: Kernel list
+  import_task: kernel_list.yml
+  tags:
+    - kernel
