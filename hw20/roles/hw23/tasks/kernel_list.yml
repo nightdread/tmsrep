@@ -1,0 +1,3 @@
+---
+- name: "Print list of all installed kernels"
+  ansible.builtin.shell: dpkg --list | grep linux-image
