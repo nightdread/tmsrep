@@ -1,6 +1,12 @@
 ---
-#Install Git & Python3
+#File & link create
 - name: Create file
   import_tasks: file_create.yml
   tags:
    - create
+
+#Install apps
+- name: Create file
+  import_tasks: hw23_1.yml
+  tags:
+   - apps
