@@ -6,7 +6,7 @@
    - create
 
 #Install apps
-- name: Create file
+- name: Install apps
   import_tasks: hw23_1.yml
   tags:
    - apps
