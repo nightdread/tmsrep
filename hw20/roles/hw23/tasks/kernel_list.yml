@@ -1,3 +1,17 @@
 ---
 - name: "Print list of all installed kernels"
-  ansible.builtin.shell: dpkg --list | grep linux-image
+  ansible.builtin.shell: dpkg --list | grep linux-image > ub_kernel
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: "Print list of all installed kernels"
+  ansible.builtin.shell: cat /home/vagrant/ub_kernel
+  when: ansible_facts['os_family'] == "Debian"
+
+
+- name: "Print list of all installed kernels"
+  ansible.builtin.shell: rpm -qa kernel > cent_kernel
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: "Print list of all installed kernels"
+  ansible.builtin.shell: cat /home/vagrant/cent_kernel
+  when: ansible_facts['os_family'] == "RedHat"
