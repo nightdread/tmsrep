@@ -34,8 +34,8 @@
     name: "{{ item }}"
     state: latest
   loop: "{{ docker_apps }}"
-register: docker_stat
-become: true
+  register: docker_stat
+  become: true
 
 #Install app on hosts
 - name: "Install Git, Python3, Nginx on Linux"
@@ -44,8 +44,8 @@ become: true
     state: latest
     update_cache: yes
   loop: "{{ hw23_apps }}"
-register: app_stat
-become: true
+  register: app_stat
+  become: true
 
 notify:
   - Docker start
