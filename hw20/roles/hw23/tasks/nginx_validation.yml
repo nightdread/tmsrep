@@ -31,17 +31,17 @@
     state: restarted
     enabled: yes
   become: true
-  when: "not 'Welcome to' in page_stat.content"
+  when: "'Welcome' is not in page_stat.content"
 
 #Print 20 lines of Nginx log
 - name: Print Nginx log
   ansible.builtin.shell: tail -n 20 /var/log/nginx/error.log
   register: log_stat
-  when: "not 'Welcome to' in page_stat.content"
+  when: "'Welcome' is not in page_stat.content"
   become: true
 
 #Print logs
 - name: Print logs
   ansible.builtin.debug:
     msg: "{{ log_stat.stdout_lines }}"
-  when: "not 'Welcome to' in page_stat.content"
+  when: "'Welcome' is not in page_stat.content"
