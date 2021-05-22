@@ -37,8 +37,9 @@
 - name: Print Nginx log
   ansible.builtin.shell: tail -n 20 /var/log/nginx/error.log
   register: log_stat
-  when: "'Welcome' is not in page_stat.content"
   become: true
+  when: "'Welcome' is not in page_stat.content"
+  
 
 #Print logs
 - name: Print logs
