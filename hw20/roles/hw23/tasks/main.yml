@@ -22,3 +22,9 @@
   import_tasks: return_code.yml
   tags:
     - rc
+
+#Nginx status
+- name: Host IP
+  import_tasks: nginx_validation.yml
+  tags:
+    - nginx

@@ -36,7 +36,10 @@
   loop: "{{ docker_apps }}"
   register: docker_stat
   become: true
-
+  
+  notify:
+    - Docker start
+    - Docker restart
 #Install app on hosts
 - name: "Install Git, Python3, Nginx on Linux"
   ansible.builtin.package:
@@ -48,7 +51,5 @@
   become: true
 
   notify:
-    - Docker start
-    - Docker restart
     - Nginx start
     - Nginx restart

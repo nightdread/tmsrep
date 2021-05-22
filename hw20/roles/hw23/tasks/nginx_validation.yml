@@ -1,0 +1,47 @@
+---
+#Check host IP
+- name: Check hosts IP
+  set_fact: host_ip={{ lookup('dig', 'localhost') }}
+
+#Check config
+- name: Check Nginx config and status
+  ansible.builtin.shell: "nginx -t"
+  register: nginx_status
+  become: true
+
+#Show status
+- name: Show Nginx status
+  ansible.builtin.debug:
+    msg: "Nginx config OK"
+  when: nginx_status.rc == 0
+
+#Check page status
+- name: Check page status
+  ansible.builtin.uri:
+    url: http://{{ host_ip }}
+    return_content: yes
+  register: page_stat
+  failed_when: "'Welcome' is not in page_stat.content"
+  ignore_errors: true
+
+#Restart Nginx when checking page status failed
+- name: "nginx start"
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+    enabled: yes
+  become: true
+  when: "not 'Welcome to' in page_stat.content"
+
+#Print 20 lines of Nginx log
+- name: Print Nginx log
+  ansible.builtin.shell: tail -n 20 /var/log/nginx/error.log
+  register: log_stat
+  when: "not 'Welcome to' in page_stat.content"
+  become: true
+
+#Print logs
+- name: Print logs
+  ansible.builtin.debug:
+    msg: "{{ log_stat.stdout_lines }}"
+  when: "not 'Welcome to' in page_stat.content"
