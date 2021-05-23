@@ -1,3 +1,14 @@
+---
+#Generate password
+- name: Generate user password
+  ansible.builtin.shell:
+    cmd: openssl rand -base64 7
+  register: rand_pass
+
+#Generate pasword hash
+- name: Hash user password
+  set_fact: user_pass="{{ rand_pass.stdout_lines | string | password_hash('sha512','A512') }}"
+
 #Add user on hosts
 - name: Add the user 'hw21_1 (hw21_2)' with a sh shell and '/opt/hw21' home directory
   ansible.builtin.user:
@@ -5,17 +16,22 @@
    shell: "{{ item.shell }}"
    home: "{{ item.home }}"
    groups: "{{ item.groups }}"
-   password: "{{ default_password | password_hash('sha512','A512') }}"
+   password: "{{ user_pass }}"
    state: present
   with_items: "{{ hw21_user }}"
-  register: output
   no_log: true
   become: true
+
+#Print password
+- name: Print user password
+  ansible.builtin.debug:
+    msg: "Your password is {{ rand_pass.stdout_lines }}"
+
+#Print password hash
+- name: Print user password hash
+  ansible.builtin.debug:
+    msg: "Your hash is {{ user_pass }}"
 
 #Reset connection  
 - name: reset ssh connection to allow user changes
   meta: reset_connection
-
-#- name: Print User password
-#  ansible.builtin.debug:
-#   msg: "{{ output.stdout_lines }}"
