@@ -17,6 +17,12 @@
   tags:
     - kernel
 
+#Installed apps list
+- name: Kernel list
+  import_tasks: apps_list.yml
+  tags:
+    - apps_list
+
 #Return code
 - name: Return code
   import_tasks: return_code.yml

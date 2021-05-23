@@ -1,0 +1,12 @@
+---
+#Print version of all installed packages
+- name: Print version of installed packages
+  ansible.builtin.shell: dpkg -l | awk '/^ii/ {print $2,$3}'
+  when: ansible_facts['os_family'] == "Debian"
+
+#Print version of all installed packages
+- name: Print version of installed packages
+  ansible.builtin.shell: yum list installed | awk ' {print $1, $2} '
+  args:
+    warn: false
+  when: ansible_facts['os_family'] == "RedHat"
