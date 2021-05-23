@@ -8,6 +8,7 @@
 #Generate pasword hash
 - name: Hash user password
   set_fact: user_pass="{{ rand_pass.stdout_lines | string | password_hash('sha512','A512') }}"
+  no_log: true
 
 #Add user on hosts
 - name: Add the user 'hw21_1 (hw21_2)' with a sh shell and '/opt/hw21' home directory
@@ -28,9 +29,9 @@
     msg: "Your password is {{ rand_pass.stdout_lines }}"
 
 #Print password hash
-- name: Print user password hash
-  ansible.builtin.debug:
-    msg: "Your hash is {{ user_pass }}"
+#- name: Print user password hash
+#  ansible.builtin.debug:
+#    msg: "Your hash is {{ user_pass }}"
 
 #Reset connection  
 - name: reset ssh connection to allow user changes
