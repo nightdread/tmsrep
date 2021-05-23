@@ -24,3 +24,5 @@ hw20_info:
  - { src: "main.j2",dest: "/tmp/HW20_FILE_INFO",owner: "hw20",mode: "0644"}
 git_repo:
  - { repo: 'https://github.com/nightdread/tmsrep.git', dest: "/opt/hw20/git/"}
+kernel_info:
+ - { src: "main.j2", dest: "/tmp/KERNEL_INFO", owner: "hw20", mode: "0644"}
