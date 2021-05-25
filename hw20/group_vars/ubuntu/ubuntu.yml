@@ -9,3 +9,4 @@ hw20_user:
  - { name: hw20, groups: "sudo, docker", shell: /bin/sh, home: /opt/hw20,  }
 hw21_user:
  - { name: hw21_1, groups: "sudo, docker", shell: /bin/sh, home: /opt/hw21, password: "{{ default_password | password_hash('sha512','A512') }}" }
+kernel_info: dpkg --list | grep linux-image > kernel_info

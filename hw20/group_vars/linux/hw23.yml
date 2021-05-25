@@ -1,0 +1,6 @@
+test_file:
+  - { path: "/opt/hw23_test_file", src: "/etc/hosts", dest: "/opt/hw23_link", owner: "hw20", group: "hw20", mode: "0644"}
+hw23_apps:
+ - git
+ - python3
+ - nginx

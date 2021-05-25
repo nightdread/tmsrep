@@ -1,0 +1,7 @@
+---
+# file: hw20.yml
+
+- hosts: linux
+  tags: hw23
+  roles:
+   - hw23

@@ -25,3 +25,11 @@
     - Install curl from deb(ubuntu) and rpm(centos) packages which located in the role under file folder. 
     - Add ability to set permissions for these files.
     - Template. Create a file /HW20_FILE_INFO with content of a variable group_hw20
+
+# HW 20 screenshot
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-05-23_15-41-18.jpg)
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-05-23_15-41-41.jpg)
+
+#HW 23 screenshot
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-05-23_16-06-48.jpg)
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-05-23_16-07-12.jpg)
