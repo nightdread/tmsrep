@@ -1,0 +1,39 @@
+---
+#- name: Remove
+#  become: true
+#  ansible.builtin.file:
+#   path: "{{ item.dest }}"
+#   state: absent
+#  loop: "{{ curl_files }}"
+
+#Copy to hosts
+- name: "Copy files to hosts"
+  become: true
+  ansible.builtin.copy:
+   src: "{{ item.src }}"
+   dest: "{{ item.dest }}"
+   owner: "{{ item.owner }}"
+   mode: "{{ item.mode }}"
+  loop: "{{ curl_files }}"
+
+#Install Curl on Ubuntu
+- name: "Install a .deb package"
+  become: true
+  ansible.builtin.apt:
+    deb: "{{ item.dest }}"
+    state: present
+    update_cache: yes
+    force: yes
+  loop: "{{ curl_files }}"
+  when: ansible_facts['os_family'] == "Debian"
+
+#Install Curl on CentOS
+- name: "Install a .rpm package"
+  become: true
+  ansible.builtin.yum:
+    name: "{{ item.dest }}"
+    state: present
+    update_cache: yes
+    allow_downgrade: yes
+  loop: "{{ curl_files }}"
+  when: ansible_facts['os_family'] == "RedHat"

@@ -1,0 +1,46 @@
+---
+#Ubuntu
+- name: "Add Docker repo Ubuntu"
+  block:
+    - name: "Set up the repository"
+      ansible.builtin.package:
+       name: "{{ item }}"
+       update_cache: yes
+      loop: "{{ docker_apps_ubuntu }}"
+
+    - name: "Add GPG key"
+      ansible.builtin.apt_key:
+       url: https://download.docker.com/linux/ubuntu/gpg
+       state: present
+       
+    - name: "Add repos"
+      ansible.builtin.apt_repository:
+       repo: deb https://download.docker.com/linux/ubuntu focal stable
+       state: present
+  when: ansible_facts['os_family'] == "Debian"
+  become: true
+
+#CentOS
+- name: "Add Docker repo CentOS"
+  ansible.builtin.get_url:
+   url: https://download.docker.com/linux/centos/docker-ce.repo
+   dest: /etc/yum.repos.d/docer-ce.repo 
+  when: ansible_facts['os_family'] == "RedHat"
+  become: true
+
+#Linux
+- name: "Install Docker Engine & add Docker to start up"
+  block:
+    - name: "Install Docker Engine"
+      ansible.builtin.package:
+       name: "{{ item }}"
+       state: latest
+      loop: "{{ docker_apps }}"
+
+#Add Docker to start up
+    - name: "Add Docker to start up"
+      ansible.builtin.service:
+       name: docker
+       state: started
+       enabled: yes
+  become: true

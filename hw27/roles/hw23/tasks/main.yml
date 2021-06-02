@@ -1,0 +1,36 @@
+---
+#File & link create
+- name: Create file
+  import_tasks: file_create.yml
+  tags:
+    - create
+
+#Install apps
+- name: Install apps
+  import_tasks: hw23_1.yml
+  tags:
+    - apps
+
+#Kernel list
+- name: Kernel list
+  import_tasks: kernel_list.yml
+  tags:
+    - kernel
+
+#Installed apps list
+- name: Kernel list
+  import_tasks: apps_list.yml
+  tags:
+    - apps_list
+
+#Return code
+- name: Return code
+  import_tasks: return_code.yml
+  tags:
+    - rc
+
+#Nginx status
+- name: Host IP
+  import_tasks: nginx_validation.yml
+  tags:
+    - nginx

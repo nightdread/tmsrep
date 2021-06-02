@@ -1,0 +1,14 @@
+---
+#Return code
+- name: "Ubuntu RC"
+  set_fact: rc=0
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: "RedHat RC"
+  set_fact: rc=2
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: "Print RC"
+  ansible.builtin.debug:
+    msg: "RC is = {{ rc }}"
+  when: rc != 0
