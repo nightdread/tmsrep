@@ -14,6 +14,7 @@
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-06-02_22-33-15.jpg)
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-06-02_22-33-46.jpg)
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-06-02_22-32-46.jpg)
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-06-05_12-04-36.jpg)
 
 ## 5. Create a schedule for you pipeline
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/2021-06-02_22-34-19.jpg)
