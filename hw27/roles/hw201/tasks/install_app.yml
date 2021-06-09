@@ -1,9 +1,0 @@
----
-#Install app on hosts
-- name: "Install Git & Python3 on Linux"
-  ansible.builtin.package:
-   name: "{{ item }}"
-   state: latest
-   update_cache: yes
-  loop: "{{ install_apps }}"
-  become: true
