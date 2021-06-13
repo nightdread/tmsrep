@@ -6,6 +6,7 @@
 ## 2.Learn base commands https://www.postgresqltutorial.com/postgresql-cheat-sheet/
 
 ## 3.Create hw33db database using query 
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw33/2021-06-12_16-56-38.jpg)
 
 ## 4.Create a hw33 table using query. Table should have at minimum two different column data types. Also at least one column should have unique values.
 
