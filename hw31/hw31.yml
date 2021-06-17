@@ -1,0 +1,8 @@
+---
+# file: hw31.yml
+
+- hosts: linux
+  tags: nginx
+  roles:
+   - nginx
+   

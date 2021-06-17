@@ -1,0 +1,14 @@
+---
+#Install app on hosts
+- name: "Install Nginx on Linux"
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop: "{{ hw23_apps }}"
+  register: app_stat
+  become: true
+
+  notify:
+    - Nginx start
+    - Nginx restart

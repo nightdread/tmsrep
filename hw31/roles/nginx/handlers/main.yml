@@ -1,20 +1,5 @@
 ---
- # Start Services Docker,Nginx
- - name: "Docker start"
-   ansible.builtin.service:
-     name: docker
-     state: started
-     enabled: yes
-   become: true
-
-# Restart service if services changed
- - name: "Docker restart"
-   ansible.builtin.service:
-     name: docker
-     state: restarted
-     enabled: yes
-   when: docker_stat.changed
- 
+#Start nginx 
  - name: "nginx start"
    ansible.builtin.service:
      name: nginx
@@ -22,6 +7,7 @@
      enabled: yes
    become: true
 
+#Restart nginx
  - name: "nginx restart"
    ansible.builtin.service:
      name: nginx
