@@ -2,7 +2,7 @@
 ## Add VPC
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw41/Screenshot/hw41/2021-07-12_14-26-13.jpg)
 ## Add subnets
-![Picture]https://github.com/nightdread/tmsrep/blob/hw41/Screenshot/hw41/2021-07-12_14-26-31.jpg)
+![Picture](https://github.com/nightdread/tmsrep/blob/hw41/Screenshot/hw41/2021-07-12_14-26-31.jpg)
 ## Add rout tables
 ![Picture](https://github.com/nightdread/tmsrep/blob/hw41/Screenshot/hw41/2021-07-12_14-26-45.jpg)
 ## Add IGW
