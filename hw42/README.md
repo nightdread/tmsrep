@@ -10,6 +10,8 @@
 
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-07-31_13-56-02.jpg)
 
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-08-07_11-30-34.jpg)
+
 ## Make a snapshot of your root volume
 
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-07-31_13-58-51.jpg)
