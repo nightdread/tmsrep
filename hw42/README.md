@@ -33,3 +33,11 @@
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-07-31_14-20-39.jpg)
 
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-07-31_14-21-00.jpg)
+
+## Check the screenshot of your EC2
+
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-08-08_21-16-57.jpg)
+
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-08-08_21-18-11.jpg)
+
+
