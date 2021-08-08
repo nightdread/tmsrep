@@ -40,4 +40,14 @@
 
 ![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-08-08_21-18-11.jpg)
 
+## Create a S3 bucket.
+## Copy any object to s3. Make it public. Try to download it using wget  and curl
+
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-08-08_21-25-29.jpg)
+
+## Create a folder. Create a lifecycle policy to delete  everything in the folder older than 1 day. Check this policy works.
+
+![Picture](https://github.com/nightdread/tmsrep/blob/master/Screenshot/hw42/2021-08-08_21-39-00.jpg)
+
+## Disable public access!
 
